@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur d'histoire magique</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      margin: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Générateur d'histoires pour enfants</h1>
+
+  <label for="character">Choisissez un personnage :</label>
+  <input type="text" id="character" placeholder="Ex: Un dragon" /><br>
+
+  <label for="location">Choisissez un lieu :</label>
+  <input type="text" id="location" placeholder="Ex: Un château enchanté" /><br>
+
+  <label for="magic-item">Choisissez un objet magique :</label>
+  <input type="text" id="magic-item" placeholder="Ex: Une baguette magique" /><br>
+
+  <button onclick="generateStory()">Générer l'histoire</button>
+
+  <h2>Histoire générée :</h2>
+  <p id="story">L'histoire s'affichera ici...</p>
+
+  <script>
+    // Fonction pour générer l'histoire en utilisant fetch
+    async function generateStory() {
+      const character = document.getElementById('character').value;
+      const location = document.getElementById('location').value;
+      const magicItem = document.getElementById('magic-item').value;
+
+      const prompt = `Écris une histoire pour enfants avec un ${character}, un lieu comme ${location}, et un objet magique comme ${magicItem}.`;
+
+      console.log('Prompt envoyé:', prompt); // Afficher le prompt envoyé au serveur
+
+      try {
+        const response = await fetch('http://localhost:3001/generate-story', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ prompt }),
+        });
+
+        const data = await response.json();
+        console.log('Réponse du serveur:', data); // Afficher la réponse du serveur dans la console
+
+        // Vérifier si l'histoire a été générée et l'afficher
+        if (data && data.story) {
+          document.getElementById('story').textContent = data.story;
+        } else {
+          document.getElementById('story').textContent = "Une erreur est survenue.";
+        }
+      } catch (error) {
+        console.error('Erreur:', error);  // Afficher l'erreur dans la console
+        document.getElementById('story').textContent = "Une erreur est survenue.";
+      }
+    }
+  </script>
+</body>
+</html>
