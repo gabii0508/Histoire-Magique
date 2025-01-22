@@ -22,7 +22,10 @@ Le projet utilise **HTML**, **CSS** et **JavaScript** pour l'interface et la log
 - **JavaScript** : pour gérer l'interaction avec l'utilisateur et la génération de l'histoire.
 - **Node.js (si utilisé)** : pour générer des histoires dynamiques côté serveur.
 
-<img width="806" alt="image" src="https://github.com/user-attachments/assets/8ab26154-4003-4fbd-835e-b00eeed1bc00" />
+Page d'accueil <img width="806" alt="image" src="https://github.com/user-attachments/assets/8ab26154-4003-4fbd-835e-b00eeed1bc00" />
+Page de selection <img width="686" alt="image" src="https://github.com/user-attachments/assets/7a236156-d804-4794-9172-2a8a1690a536" />
+Page du résultat avec appel API <img width="814" alt="image" src="https://github.com/user-attachments/assets/10fac985-18bd-4e36-8314-ee885f30651c" />
+
 
 
 
