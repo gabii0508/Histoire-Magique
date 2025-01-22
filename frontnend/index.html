@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       padding: 20px;
     }
-    input, button {
+    input, button, select {
       margin: 10px;
       padding: 10px;
     }
@@ -19,13 +19,25 @@
   <h1>Générateur d'histoires pour enfants</h1>
 
   <label for="character">Choisissez un personnage :</label>
-  <input type="text" id="character" placeholder="Ex: Un dragon" /><br>
+  <select id="character">
+    <option value="Dragon">Un Dragon</option>
+    <option value="Licorne">Une Licorne</option>
+    <option value="Elfe">Un Elfe</option>
+  </select><br>
 
   <label for="location">Choisissez un lieu :</label>
-  <input type="text" id="location" placeholder="Ex: Un château enchanté" /><br>
+  <select id="location">
+    <option value="château enchanté">Un château enchanté</option>
+    <option value="forêt mystérieuse">Une forêt mystérieuse</option>
+    <option value="île magique">Une île magique</option>
+  </select><br>
 
   <label for="magic-item">Choisissez un objet magique :</label>
-  <input type="text" id="magic-item" placeholder="Ex: Une baguette magique" /><br>
+  <select id="magic-item">
+    <option value="baguette magique">Une baguette magique</option>
+    <option value="potion de guérison">Une potion de guérison</option>
+    <option value="miroir enchanté">Un miroir enchanté</option>
+  </select><br>
 
   <button onclick="generateStory()">Générer l'histoire</button>
 
@@ -49,7 +61,7 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ prompt }),
+          body: JSON.stringify({ character, location, magicItem }),
         });
 
         const data = await response.json();
