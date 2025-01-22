@@ -1,0 +1,108 @@
+/* src/components/Accueil.css */
+
+/* Importer la police Baloo 2 */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+/* Appliquer un fond simple à l'ensemble de la page (sans l'image étoilée) */
+body {
+  background-color: #70d9f9; /* Fond bleu clair */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrer le contenu verticalement */
+  align-items: center; /* Centrer le contenu horizontalement */
+  height: 100vh; /* Prendre toute la hauteur de la fenêtre */
+  margin: 0;
+  text-align: center; /* Centrer le texte */
+  font-family: 'Baloo 2', sans-serif; /* Police Baloo 2 pour l'ensemble */
+  overflow: hidden; /* Empêche le contenu de déborder */
+  transition: background-color 0.3s ease; /* Effet de transition pour une meilleure fluidité */
+}
+
+/* Style pour la page d'accueil */
+#accueil-page {
+  text-align: center; /* Centrer tout le contenu */
+  margin-top: 30px; /* Marge en haut pour aérer le texte */
+  z-index: 1; /* S'assurer que le contenu est au-dessus de l'image */
+}
+
+/* Style pour le titre */
+h1 {
+  color: #004b87; /* Couleur bleu foncé pour le titre */
+  font-size: 2.5rem; /* Taille du titre */
+  margin-bottom: 20px; /* Espacement sous le titre */
+  font-family: 'Arial', sans-serif; /* Police du texte */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile au titre */
+}
+
+/* Style pour le texte */
+p {
+  color: #333; /* Couleur du texte */
+  font-size: 1.2rem; /* Taille du texte */
+  margin: 10px 0; /* Marge autour du texte */
+  line-height: 1.6; /* Espacement entre les lignes pour améliorer la lisibilité */
+  font-family: 'Arial', sans-serif; /* Police du texte */
+}
+
+/* Style pour l'image */
+.accueil-image {
+  max-width: 80%; /* Limiter la largeur de l'image à 80% */
+  height: auto; /* Conserver les proportions */
+  margin-top: 30px; /* Marge au-dessus de l'image */
+  margin-bottom: 30px; /* Marge en dessous de l'image */
+  border-radius: 15px; /* Bord arrondi pour un effet moderne */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet de profondeur */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour un effet fluide */
+}
+
+/* Effet sur l'image au survol */
+.accueil-image:hover {
+  transform: scale(1.05); /* Légèrement zoom sur l'image au survol */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+/* Conteneur pour l'image et le bouton */
+.accueil-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1; /* Assurer que le contenu est au-dessus de l'image */
+}
+
+/* Style pour le bouton */
+.explore-button {
+  background-color: #004b87; /* Bleu foncé */
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Effet de transition pour l'animation du bouton */
+  margin-top: 30px; /* Espacement entre l'image et le bouton */
+  text-transform: uppercase; /* Texte en majuscule pour un effet plus moderne */
+}
+
+/* Effet au survol du bouton */
+.explore-button:hover {
+  background-color: #7cc8e8; /* Légèrement plus clair au survol */
+  transform: translateY(-4px); /* Déplacement léger vers le haut pour un effet interactif */
+}
+
+/* Ajout d'un effet de transition à la page d'accueil pour plus de fluidité */
+#accueil-page {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+/* Animation fade-in pour l'entrée de la page */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

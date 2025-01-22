@@ -1,0 +1,64 @@
+/* Personnages.css */
+
+/* Fond et centrage */
+body {
+  background-color: #f0f8ff; /* Fond bleu clair */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Baloo 2', sans-serif;
+  text-align: center;
+}
+
+/* Style du titre */
+h1 {
+  font-size: 2.5rem;
+  color: #004b87;
+  margin-bottom: 20px;
+}
+
+/* Conteneur d'images des personnages */
+.images {
+  display: flex;
+  justify-content: space-evenly; /* Met les images côte à côte avec de l'espace égal */
+  align-items: center; /* Centrer verticalement */
+  gap: 20px; /* Espacement entre les images */
+  margin-top: 30px;
+  flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'espace est trop petit */
+  max-width: 800px; /* Largeur maximale pour le conteneur */
+  width: 100%; /* Largeur de 100% pour s'adapter à l'écran */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Redimensionnement des images des personnages */
+.images img {
+  width: 120px; /* Taille uniforme réduite des images */
+  height: 120px; /* Hauteur uniforme pour garder les images carrées */
+  object-fit: cover; /* Assure que l'image couvre complètement l'espace sans distorsion */
+  border-radius: 10px; /* Bords arrondis pour l'effet carte */
+  transition: transform 0.3s ease; /* Animation lors du survol */
+}
+
+/* Effet d'agrandissement au survol */
+.images img:hover {
+  transform: scale(1.1); /* Agrandir légèrement l'image au survol */
+}
+
+/* Style des cartes contenant chaque personnage */
+.images div {
+  text-align: center; /* Centrer le texte sous chaque image */
+  flex: 1 1 30%; /* Chaque image prend une largeur équivalente */
+  max-width: 180px; /* Largeur maximale des cartes */
+  box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur de l'élément */
+}
+
+/* Style du titre des personnages */
+.images h3 {
+  font-size: 1.2rem;
+  color: #004b87;
+  margin-top: 10px;
+}

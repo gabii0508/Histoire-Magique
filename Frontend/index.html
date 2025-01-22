@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une histoire magique</title>
+
+    <style>
+        /* Général */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            background: #2980b9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        p {
+            color: #ddd;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Section container */
+        .section {
+            width: 80%;
+            max-width: 1200px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+
+        /* Image d'accueil */
+        #accueil img {
+            width: 80%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Boutons */
+        .button {
+            background-color: #30ace1;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #30ace1;
+            transform: translateY(-3px);
+        }
+
+        /* Sections images (personnages, objets, lieux) */
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card button {
+            margin-top: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-top: 8px;
+        }
+
+        /* Section Histoire */
+        .story {
+            font-size: 1.3rem;
+            color: #ddd;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Section Lieu Image */
+        #lieuImage img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Adaptation responsive */
+        @media (max-width: 768px) {
+            .images {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section d'accueil -->
+    <div id="accueil" class="section">
+        <h1>Bienvenue dans un monde magique !</h1>
+        <div>
+            <img src="https://us.123rf.com/450wm/mfbtasarim/mfbtasarim2407/mfbtasarim240703109/231155636-caricature-d-un-gar%C3%A7on-lisant-un-livre-sur-un-lit-illustration-d-un-enfant-profitant-d-un-moment.jpg?ver=6" alt="Garçon lisant un livre">
+        </div>
+        <p>Plongez dans un univers enchanté, explorez des lieux mystérieux, découvrez des personnages fascinants et choisissez des objets magiques pour vivre une aventure inoubliable.</p>
+        <button class="button" onclick="afficherPersonnages()">Explorer</button>
+    </div>
+
+    <!-- Section des personnages -->
+    <div id="personnages" class="section" style="display:none;">
+        <h1>Choisissez votre héros</h1>
+        <div class="images">
+            <div class="card">
+                <img src="https://img.freepik.com/photos-premium/illustration-dessin-anime-mignon-petit-dragon-assis-sol-ai-generatif_955925-4876.jpg" alt="Petit dragon mignon">
+                <button class="button" onclick="choisirPersonnage('dragon')">Un Dragon</button>
+                <p>Un dragon mignon, plein de courage et de magie.</p>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/vecteurs-premium/mignonne-petite-sorciere-balai-magique-illustration-vectorielle_622487-703.jpg" alt="Petite sorcière sur un balai magique">
+                <button class="button" onclick="choisirPersonnage('sorciere')">Une Sorcière</button>
+                <p>Une sorcière malicieuse avec des pouvoirs puissants.</p>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/625429-paysage-de-montagne-illustration-de-papier-vectoriel.jpg" alt="Petite fée au citron">
+                <button class="button" onclick="choisirPersonnage('fee')">Une Fée</button>
+                <p>Une fée légère, toujours prête à aider avec sa magie.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des lieux -->
+    <div id="lieux" class="section" style="display:none;">
+        <h1>Choisissez votre destination magique</h1>
+        <p>Sélectionnez le lieu où votre aventure commencera.</p>
+        <div class="images">
+            <div class="card">
+                <img src="https://img.freepik.com/vecteurs-libre/scene-nature-sentier-randonnee-arbres_1308-82060.jpg" alt="Forêt enchantée">
+                <button class="button" onclick="choisirLieu('foret')">La Forêt</button>
+                <p>Un lieu mystérieux, peuplé de créatures magiques et de secrets.</p>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/vecteurs-libre/fond-ete-plat-organique-pour-appels-video_23-2148935886.jpg" alt="Plage en été">
+                <button class="button" onclick="choisirLieu('plage')">La Plage</button>
+                <p>Des plages ensoleillées, parfaites pour se détendre ou explorer.</p>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/625429-paysage-de-montagne-illustration-de-papier-vectoriel.jpg" alt="Montagne mystérieuse">
+                <button class="button" onclick="choisirLieu('montagne')">La Montagne</button>
+                <p>Des montagnes imposantes où l'aventure vous attend.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des objets -->
+    <div id="objets" class="section" style="display:none;">
+        <h1>Choisissez un objet magique pour votre aventure</h1>
+        <div class="images">
+            <div class="card">
+                <img src="https://img.freepik.com/photos-premium/bouclier-dessin-rouge-marron-dessus_662214-177555.jpg" alt="Bouclier magique">
+                <button class="button" onclick="choisirObjet('bouclier')">Un Bouclier</button>
+                <p>Un bouclier magique pour vous protéger contre les attaques.</p>
+            </div>
+            <div class="card">
+                <img src="https://media.istockphoto.com/id/860915400/fr/vectoriel/%C3%A9p%C3%A9e.jpg?s=612x612&w=0&k=20&c=e__otGM0aVndtvsL1yq5tXeIEgO4jt-ahIW9KYgB9WM=" alt="Épée magique">
+                <button class="button" onclick="choisirObjet('epee')">Une Épée</button>
+                <p>Une épée magique, capable de trancher à travers tout.</p>
+            </div>
+            <div class="card">
+                <img src="https://static4.depositphotos.com/1000401/294/v/450/depositphotos_2947423-stock-illustration-christmas-wishing-shooting-star.jpg" alt="Étoile filante">
+                <button class="button" onclick="choisirObjet('etoile')">Une Étoile</button>
+                <p>Une étoile filante qui peut exaucer des vœux.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section de l'histoire générée -->
+    <div id="histoire" class="section" style="display:none;">
+        <h1>Votre aventure commence !</h1>
+        <div id="storyContent" class="story"></div>
+        <button class="button" onclick="recommencerAventure()">Recommencer l'aventure</button>
+    </div>
+
+    <script>
+        // Variables globales pour stocker les choix
+        let personnageChoisi = '';
+        let lieuChoisi = '';
+        let objetChoisi = '';
+
+        // Fonction pour afficher les personnages
+        function afficherPersonnages() {
+            document.getElementById('accueil').style.display = 'none';
+            document.getElementById('personnages').style.display = 'block';
+        }
+
+        // Fonction pour choisir un personnage
+        function choisirPersonnage(personnage) {
+            personnageChoisi = personnage;
+            console.log("Personnage choisi : " + personnage);
+            document.getElementById('personnages').style.display = 'none';
+            document.getElementById('lieux').style.display = 'block';
+        }
+
+        // Fonction pour choisir un lieu
+        function choisirLieu(lieu) {
+            lieuChoisi = lieu;
+            console.log("Lieu choisi : " + lieu);
+            document.getElementById('lieux').style.display = 'none';
+            document.getElementById('objets').style.display = 'block';
+        }
+
+        // Fonction pour choisir un objet
+        function choisirObjet(objet) {
+            objetChoisi = objet;
+            console.log("Objet choisi : " + objet);
+            
+            // Appeler la fonction pour générer l'histoire avec les choix
+            genererHistoire(personnageChoisi, lieuChoisi, objetChoisi);
+
+            // Masquer les autres sections
+            document.getElementById('objets').style.display = 'none';
+        }
+
+        // Fonction pour générer l'histoire avec les choix
+        function genererHistoire(personnage, lieu, objet) {
+            const data = {
+                character: personnage,
+                location: lieu,
+                magicItem: objet
+            };
+
+            fetch('http://localhost:3001/generate-story', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('storyContent').innerHTML = data.story;
+                document.getElementById('histoire').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Erreur lors de la génération de l\'histoire:', error);
+            });
+        }
+
+        // Fonction pour recommencer l'aventure
+        function recommencerAventure() {
+            personnageChoisi = '';
+            lieuChoisi = '';
+            objetChoisi = '';
+
+            document.getElementById('histoire').style.display = 'none';
+            document.getElementById('accueil').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
