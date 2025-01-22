@@ -25,3 +25,7 @@ Le projet utilise **HTML**, **CSS** et **JavaScript** pour l'interface et la log
 <img width="806" alt="image" src="https://github.com/user-attachments/assets/8ab26154-4003-4fbd-835e-b00eeed1bc00" />
 
 
+
+
+
+
