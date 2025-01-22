@@ -1,0 +1,75 @@
+/* src/components/Accueil.css */
+
+/* Importer la police Baloo 2 */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+/* Appliquer un fond simple à l'ensemble de la page (sans l'image étoilée) */
+body {
+  background-color: #70d9f9; /* Fond bleu clair */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrer le contenu verticalement */
+  align-items: center; /* Centrer le contenu horizontalement */
+  height: 100vh; /* Prendre toute la hauteur de la fenêtre */
+  margin: 0;
+  text-align: center; /* Centrer le texte */
+  font-family: 'Baloo 2', sans-serif; /* Police Baloo 2 pour l'ensemble */
+}
+
+/* Style pour le texte */
+p {
+  font-size: 2rem; /* Taille du texte */
+  font-weight: bold;
+  margin-top: 20px; /* Espace au-dessus du texte */
+  line-height: 1.5;
+  color: rgb(95, 40, 221);
+}
+
+/* Conteneur pour l'image et le bouton */
+.accueil-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style pour l'image */
+.accueil-image {
+  width: 250px; /* Largeur de l'image */
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px; /* Espace entre l'image et le bouton */
+  animation: zoomIn 2s ease-in-out; /* Animation de zoom */
+}
+
+/* Animation d'entrée de l'image (zoom) */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Style pour le bouton */
+.explore-button {
+  background-color: #004b87; /* Bleu foncé */
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Espacement entre l'image et le bouton */
+}
+
+/* Effet au survol du bouton */
+.explore-button:hover {
+  background-color: #7cc8e8; /* Légèrement plus foncé au survol */
+}

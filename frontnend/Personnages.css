@@ -1,0 +1,74 @@
+/* src/components/Personnages.css */
+
+.personnages-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #004b87;
+  }
+  
+  .personnages-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Ajout d'un écart entre les images */
+  }
+  
+  /* Conteneur des cartes de personnage */
+  .personnage-card {
+    background-color: #f0f0f0;
+    border: 2px solid #004b87;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    animation: fadeIn 1s ease-out; /* Animation de l'apparition */
+  }
+  
+  .personnage-card:hover {
+    transform: scale(1.05); /* Agrandir légèrement la carte au survol */
+  }
+  
+  /* Animation pour l'apparition de chaque carte */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .personnage-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Effet de zoom lors du survol */
+  }
+  
+  /* Animation de zoom sur l'image */
+  .personnage-image:hover {
+    transform: scale(1.1);
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #004b87;
+  }
+  
+  /* Description du personnage alignée à droite */
+  p {
+    font-size: 1rem;
+    color: #333;
+    text-align: right; /* Alignement du texte à droite */
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
